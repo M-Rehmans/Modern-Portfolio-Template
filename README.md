@@ -32,8 +32,8 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 👤 Author
 **Muhammad Rehman Rafi**  
 🌐 [Craftology.site](https://craftology.site)  
-📩 [mrehmanrafi15@gmail.com]  
+📩 [Send Mail To Rehman](mailto:mrehmanrafi15@gmail.com)
 📌 [GitHub Profile](https://github.com/M-Rehmans)
 
 ---
-Feel free to contribute, star ⭐ the repo, and share your feedback!
+Feel free to ask any question about it, star ⭐ the repo, and share your feedback!
