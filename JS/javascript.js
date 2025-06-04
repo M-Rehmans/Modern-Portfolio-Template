@@ -3,6 +3,7 @@ const navLinks = document.querySelectorAll('header nav a');
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('header nav');
 const sections = document.querySelectorAll('section');
+const logoSpan = document.querySelector('.logo span');
 
 window.onscroll = () => {
   sections.forEach(sec => {
@@ -35,6 +36,7 @@ const updateLinkColors = () => {
     // Header background is secondary
     navLinks.forEach(link => {
       link.style.color = 'var(--light)'; // Change color to light
+      logoSpan.style.color = 'var(--light)';
     });
 
     // Keep active link color as primary
@@ -46,6 +48,7 @@ const updateLinkColors = () => {
     // Header background is light
     navLinks.forEach(link => {
       link.style.color = 'var(--secondary)'; // Change color to secondary
+      logoSpan.style.color = 'var(--secondary)';
     });
 
     // Keep active link color as primary
