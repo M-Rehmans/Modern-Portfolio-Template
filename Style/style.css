@@ -69,7 +69,6 @@ header {
     align-items: center;
     z-index: 100;
     transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 0.5px 5px; */
 }
 
 nav {
@@ -589,8 +588,15 @@ h3 {
     margin: 30px 0px;
     padding: 0px 20px;
 }
+
+
 .projects-Container .project{
+    display: none;
+}
+
+.projects-Container .project.visible{
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
@@ -655,6 +661,22 @@ h3 {
     color: var(--secondary);
     font-weight: 500;
 }
+
+.show-more-btn-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#toggleProjectsBtn {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 
 
 footer{
@@ -770,16 +792,10 @@ footer a{
     }
 }
 
-
-
-
-
-
 @media screen and (max-width: 445px) {
     /* Styles for large desktops */
     .Typing-Container {
         font-size: 2.5rem;
-
     }
 
     .contact-box form {
