@@ -83,6 +83,11 @@ nav {
     font-weight: 700;
 }
 
+.logo span, footer span{
+    color: var(--secondary);
+    transition: color 0.3s ease-in-out;
+}
+
 nav a {
     font-size: 1.05rem;
     color: var(--secondary);
@@ -688,7 +693,7 @@ footer{
     text-align: center;
 }
 footer a{
-    color: var(--secondary);
+    color: var(--primary);
 
 }
 
