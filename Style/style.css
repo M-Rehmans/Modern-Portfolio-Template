@@ -38,7 +38,8 @@ html {
     text-decoration: none;
 }
 
-.crafto-m-btn button {
+.crafto-m-btn button,
+.dialoge-btn {
     border: 1px solid red;
     padding: 8px 16px;
     border-radius: 8px;
@@ -197,7 +198,8 @@ header.active {
     right: 0;
 }
 
-.contact-btn button {
+.contact-btn button,
+.dialoge-btn {
     font-size: var(--h3-XL);
     color: var(--primary);
     border: 2px solid var(--secondary);
@@ -207,7 +209,8 @@ header.active {
     transition: all 0.3s ease;
 }
 
-.contact-btn button:hover {
+.contact-btn button:hover,
+.dialoge-btn:hover {
     border-color: var(--primary);
     color: var(--secondary);
 }
@@ -293,6 +296,7 @@ h3 {
 
 .service-card:hover {
     border: 2px solid var(--primary);
+
     .top-icons,
     h3 {
         color: var(--primary);
@@ -587,6 +591,22 @@ h3 {
     background-color: transparent;
     color: white;
     font-weight: 600;
+}
+
+.dialog-box {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
 }
 
 /* Project section */
