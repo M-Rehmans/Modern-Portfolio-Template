@@ -260,45 +260,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateView();
 });
+ const fields = [
+    { id: "name", validate: (v) => v.length >= 2 },
+    { id: "email", validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: "phone", validate: (v) => /^[0-9]{7,}$/.test(v) },
+    { id: "subject", validate: (v) => v.length >= 3 },
+    { id: "message", validate: (v) => v.length >= 10 },
+  ];
 
+  // Input restrictions: Only allow numbers in phone field
+  document.getElementById("phone").addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[^\d]/g, "");
+  });
 
-function handleSubmit(e) {
+  // Show error when leaving a field
+  fields.forEach(field => {
+    const input = document.getElementById(field.id);
+    const error = document.getElementById(`${field.id}-error`);
+
+    input.addEventListener("blur", () => {
+      const isValid = field.validate(input.value.trim());
+      error.style.display = isValid ? "none" : "block";
+    });
+
+    // Show previous error when focusing next input
+    input.addEventListener("focus", () => {
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        const err = document.getElementById(`${f.id}-error`);
+        if (!f.validate(el.value.trim())) {
+          err.style.display = "block";
+        }
+      });
+    });
+  });
+
+  function handleSubmit(e) {
     e.preventDefault();
 
-    // Grab fields
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
+    let hasError = false;
+    fields.forEach(field => {
+      const input = document.getElementById(field.id);
+      const error = document.getElementById(`${field.id}-error`);
+      const isValid = field.validate(input.value.trim());
+      error.style.display = isValid ? "none" : "block";
+      if (!isValid) hasError = true;
+    });
 
-    // Basic validations
-    if (name.length < 2) {
-      alert("Please enter your full name.");
-      return;
-    }
+    if (hasError) return;
 
-    if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    if (!validatePhone(phone)) {
-      alert("Please enter a valid phone number.");
-      return;
-    }
-
-    if (subject.length < 3) {
-      alert("Please enter a subject.");
-      return;
-    }
-
-    if (message.length < 10) {
-      alert("Please enter a message with at least 10 characters.");
-      return;
-    }
-
-    // Submit using fetch
+    // Submit if all is good
     const form = e.target;
     const data = new FormData(form);
 
@@ -316,14 +327,4 @@ function handleSubmit(e) {
 
   function closeDialog() {
     document.getElementById("dialog").style.display = "none";
-  }
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email.toLowerCase());
-  }
-
-  function validatePhone(phone) {
-    const re = /^[0-9+\s()-]{7,}$/;
-    return re.test(phone);
   }
