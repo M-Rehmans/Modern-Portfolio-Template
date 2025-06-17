@@ -402,22 +402,45 @@
       <div class="contact-box">
         <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
           <input type="hidden" name="form-name" value="contact">
+
           <h2 class="heading">Contact <span>Me!</span></h2>
           <div class="field-box">
-            <input type="text" name="name" id="name" placeholder="Full Name" required>
-            <input type="email" name="email" id="email" placeholder="Email Address" required>
-            <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
-            <input type="text" name="subject" id="subject" placeholder="Email Subject" required>
-            <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+            <div>
+              <input type="text" name="name" id="name" placeholder="Full Name" required>
+              <div id="name-error" class="error-message">Name must be at least 2 characters.</div>
+            </div>
+
+            <div>
+              <input type="email" name="email" id="email" placeholder="Email Address" required>
+              <div id="email-error" class="error-message">Please enter a valid email address.</div>
+            </div>
+
+            <div>
+              <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+              <div id="phone-error" class="error-message">Please enter a valid phone number.</div>
+            </div>
+
+            <div>
+              <input type="text" name="subject" id="subject" placeholder="Email Subject" required>
+              <div id="subject-error" class="error-message">Subject must be at least 3 characters.</div>
+            </div>
+
+            <div>
+              <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+              <div id="message-error" class="error-message">Message must be at least 10 characters.</div>
+            </div>
           </div>
+
           <button type="submit" class="form-btn">Send Message</button>
         </form>
 
         <!-- Success Dialog -->
-        <div id="dialog" class="dialog-box">
+        <div id="dialog" style="display:none; position:fixed; top:30%; left:50%; transform:translateX(-50%);
+  background:#fff; padding:20px 30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;">
           <p>✅ Your message has been sent!</p>
           <button onclick="closeDialog()">OK</button>
         </div>
+
       </div>
     </div>
   </section>
