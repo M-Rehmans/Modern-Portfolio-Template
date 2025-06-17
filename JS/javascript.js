@@ -260,25 +260,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateView();
 });
-
-function handleSuccess(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const data = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      body: data,
-    }).then(() => {
-      form.reset();
-      document.getElementById('dialog').style.display = 'block';
-    }).catch((err) => {
-      alert('Something went wrong.');
-      console.error(err);
-    });
-  }
-
-  function closeDialog() {
-    document.getElementById('dialog').style.display = 'none';
-  }
