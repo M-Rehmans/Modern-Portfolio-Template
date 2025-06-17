@@ -260,38 +260,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateView();
 });
- const fields = [
-    { id: "name", validate: (v) => v.length >= 2 },
-    { id: "email", validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-    { id: "phone", validate: (v) => /^[0-9]{7,}$/.test(v) },
-    { id: "subject", validate: (v) => v.length >= 3 },
-    { id: "message", validate: (v) => v.length >= 10 },
+
+const fields = [
+    {
+      id: "name",
+      validate: (v) => v.length >= 2,
+      message: "Name must be at least 2 characters."
+    },
+    {
+      id: "email",
+      validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      message: "Please enter a valid email address."
+    },
+    {
+      id: "phone",
+      validate: (v) => /^[0-9]{7,}$/.test(v),
+      message: "Please enter a valid phone number (digits only)."
+    },
+    {
+      id: "subject",
+      validate: (v) => v.length >= 3,
+      message: "Subject must be at least 3 characters."
+    },
+    {
+      id: "message",
+      validate: (v) => v.length >= 10,
+      message: "Message must be at least 10 characters."
+    },
   ];
 
-  // Input restrictions: Only allow numbers in phone field
+  // Only allow digits in phone field
   document.getElementById("phone").addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/[^\d]/g, "");
   });
 
-  // Show error when leaving a field
+  // Validate on blur
   fields.forEach(field => {
     const input = document.getElementById(field.id);
     const error = document.getElementById(`${field.id}-error`);
 
     input.addEventListener("blur", () => {
-      const isValid = field.validate(input.value.trim());
-      error.style.display = isValid ? "none" : "block";
-    });
-
-    // Show previous error when focusing next input
-    input.addEventListener("focus", () => {
-      fields.forEach(f => {
-        const el = document.getElementById(f.id);
-        const err = document.getElementById(`${f.id}-error`);
-        if (!f.validate(el.value.trim())) {
-          err.style.display = "block";
-        }
-      });
+      const value = input.value.trim();
+      if (!field.validate(value)) {
+        error.style.display = "block";
+      } else {
+        error.style.display = "none";
+      }
     });
   });
 
@@ -299,17 +313,25 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     let hasError = false;
+
     fields.forEach(field => {
       const input = document.getElementById(field.id);
       const error = document.getElementById(`${field.id}-error`);
-      const isValid = field.validate(input.value.trim());
-      error.style.display = isValid ? "none" : "block";
-      if (!isValid) hasError = true;
+      const value = input.value.trim();
+      const isValid = field.validate(value);
+
+      if (!isValid) {
+        error.textContent = field.message;
+        error.style.display = "block";
+        hasError = true;
+      } else {
+        error.style.display = "none";
+      }
     });
 
     if (hasError) return;
 
-    // Submit if all is good
+    // Submit form
     const form = e.target;
     const data = new FormData(form);
 
@@ -318,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
       body: data
     }).then(() => {
       form.reset();
-      document.getElementById("dialog").style.display = "flex";
+      document.getElementById("dialog").style.display = "block";
     }).catch(error => {
       alert("Something went wrong!");
       console.error(error);
