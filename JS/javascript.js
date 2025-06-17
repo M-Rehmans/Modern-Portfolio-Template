@@ -8,7 +8,7 @@ const logoSpan = document.querySelector('.logo span');
 window.onscroll = () => {
   sections.forEach(sec => {
     const top = window.scrollY;
-    const offset = sec.offsetTop - 160;
+    const offset = sec.offsetTop - 120;
     const height = sec.offsetHeight;
     const id = sec.getAttribute('id');
 
@@ -127,6 +127,8 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function () {
   // On DOM Load initiate the effect
   if (textArray.length) setTimeout(type, newTextDelay + 250);
+  // Trigger scroll logic manually so nav background and link color update correctly
+  window.dispatchEvent(new Event('scroll'));
 });
 
 // First Section Typing Effect's code Completed
