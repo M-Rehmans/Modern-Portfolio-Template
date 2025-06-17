@@ -261,3 +261,27 @@ document.addEventListener("DOMContentLoaded", function () {
   updateView();
 });
 
+
+
+
+
+function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      body: data
+    }).then(() => {
+      form.reset();
+      document.getElementById("dialog").style.display = "block";
+    }).catch(error => {
+      alert("Something went wrong!");
+      console.error(error);
+    });
+  }
+
+  function closeDialog() {
+    document.getElementById("dialog").style.display = "none";
+  }
