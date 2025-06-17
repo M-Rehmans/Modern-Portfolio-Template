@@ -609,17 +609,43 @@ h3 {
     z-index: 999;
 }
 
- .error-message {
-    color: red;
-    font-size: 0.85rem;
-    margin-top: 2px;
-    display: none;
-  }
-  .field-box {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+ .input-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.error-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
+  font-size: 18px;
+  display: none;
+  cursor: pointer;
+}
+
+.error-icon::before {
+  content: "⚠";
+}
+
+.error-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background: #f44336;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: none;
+}
+
+.error-icon:hover::after {
+  display: block;
+}
 
 /* Project section */
 .projects-Sec {
