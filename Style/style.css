@@ -4,7 +4,6 @@
 }
 
 :root {
-    /* color size  */
     --primary: #FF782A;
     --secondary: #0A7D8C;
     --success: #0A7D8C;
@@ -12,13 +11,10 @@
     --info: #17a2b8;
     /* Info color (e.g., teal) */
     --light: #E6E6E4;
-    /* Light color (e.g., off-white) */
     --dark: #343a40;
-    /* Dark color (e.g., dark gray) */
     --background: #ffffff;
     /* Background color (e.g., white) */
     --text: #212529;
-    /* Text color (e.g., near black) */
     /* Font Size  */
     --h1-XL: 4rem;
     --h1-L: 3.5rem;
@@ -31,6 +27,11 @@
     --primary-font: 1rem;
     --secondary-font: 0.875rem;
     --p-secondary-font: 0.75rem;
+}
+
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
 }
 
 .crafto-m-btn {
@@ -83,7 +84,8 @@ nav {
     font-weight: 700;
 }
 
-.logo span, footer span{
+.logo span,
+footer span {
     color: var(--secondary);
     transition: color 0.3s ease-in-out;
 }
@@ -120,11 +122,6 @@ header.active {
     }
 }
 
-
-
-
-
-/*  */
 .contain-box {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -161,12 +158,10 @@ header.active {
 @keyframes blink {
     0% {
         background-color: var(--secondary);
-        ;
     }
 
     49% {
         background-color: var(--secondary);
-        ;
     }
 
     50% {
@@ -179,7 +174,6 @@ header.active {
 
     100% {
         background-color: var(--secondary);
-        ;
     }
 }
 
@@ -216,16 +210,16 @@ header.active {
 .contact-btn button:hover {
     border-color: var(--primary);
     color: var(--secondary);
-
 }
 
 /* services */
 .services {
-    padding: 0px 30px;
-    margin: 30px 0px;
+    padding: 50px 30px;
+    margin: 35px 0px;
 }
 
-.services .section-title, .sec-title h2 {
+.services .section-title,
+.sec-title h2 {
     color: var(--secondary);
     font-size: 3rem;
     font-weight: 650;
@@ -233,7 +227,7 @@ header.active {
     margin-bottom: 80px;
 }
 
-.sec-title h2{
+.sec-title h2 {
     text-align: left;
     text-decoration: underline;
     text-decoration-color: var(--primary);
@@ -257,6 +251,17 @@ header.active {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.coming-soon-card {
+    position: relative;
+}
+
+.coming-soon {
+    position: absolute;
+    top: -13.3px;
+    right: -13.5px;
+    height: 40%;
 }
 
 .services .service-container .service-card .top-icons {
@@ -288,7 +293,6 @@ h3 {
 
 .service-card:hover {
     border: 2px solid var(--primary);
-
     .top-icons,
     h3 {
         color: var(--primary);
@@ -303,18 +307,12 @@ h3 {
     font-weight: 600;
 }
 
-
-
-
-
-
-
 /* Resume Style */
 .resume-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 5rem;
-    padding: 0px 30px;
+    padding: 30px;
     margin: 30px 0px;
 }
 
@@ -382,7 +380,8 @@ h3 {
     gap: .5rem;
     height: 450px;
     overflow: auto;
-        scrollbar-gutter: stable; /* Keeps scrollbar consistent */
+    scrollbar-gutter: stable;
+    /* Keeps scrollbar consistent */
 }
 
 .resume-list::-webkit-scrollbar {
@@ -485,8 +484,12 @@ h3 {
     font-size: 1.2rem;
 }
 
-
-
+.Learning {
+    position: absolute;
+    top: -8.5px;
+    right: -8.5px;
+    height: 80%;
+}
 
 /* Contact Section */
 .contact-container {
@@ -586,28 +589,27 @@ h3 {
     font-weight: 600;
 }
 
-
-
 /* Project section */
-.projects-Sec{
+.projects-Sec {
     margin: 30px 0px;
-    padding: 0px 20px;
+    padding: 30px 20px;
 }
 
+.projects-Sec>:first-child {
+    margin-bottom: 30px;
+}
 
-.projects-Container .project{
+.projects-Container .project {
     display: none;
 }
 
-.projects-Container .project.visible{
+.projects-Container .project.visible {
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-
-.project-img-box{
+.project-img-box {
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     max-width: 420px;
     max-height: 300px;
@@ -619,30 +621,38 @@ h3 {
     padding: 10px;
 }
 
-.project-img-box img{
+.project-img-box .project-img {
     width: 100%;
 }
 
-.project-img{
+.coming-soon-project {
+    position: absolute;
+    top: -11px;
+    right: -12px;
+    height: 50%;
+}
+
+.project-img {
     width: 390px;
     border-radius: 10px;
 }
 
-.projects-Container>hr{
+.projects-Container>hr {
     width: 300px;
     margin: 40px auto;
-
 }
-.project-info .project-tite{
+
+.project-info .project-tite {
     font-size: 1.3rem;
     color: var(--secondary);
     font-weight: 600;
 }
 
-.project-info hr{
+.project-info hr {
     width: 100%;
     margin: 0px;
 }
+
 .project-info .info-details>:first-child {
     color: var(--primary);
     font-weight: 550;
@@ -651,40 +661,40 @@ h3 {
     text-decoration-thickness: 2px;
     text-decoration-color: var(--secondary);
 }
-.prjct-flex{
+
+.prjct-flex {
     padding: 30px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
     color: var(--primary);
 }
-.prjct-links{
+
+.prjct-links {
     margin-top: 20px;
     display: flex;
     gap: 30px;
 }
-.prjct-links>a{
+
+.prjct-links>a {
     color: var(--secondary);
     font-weight: 500;
 }
 
 .show-more-btn-box {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 #toggleProjectsBtn {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-
-
-
-footer{
+footer {
     margin-top: 40px;
     height: 50px;
     width: 100%;
@@ -692,17 +702,14 @@ footer{
     font-weight: 600;
     text-align: center;
 }
-footer a{
+
+footer a {
     color: var(--primary);
-
 }
-
 
 /* Breakpoints */
 
 @media screen and (max-width: 1200px) {
-
-    /* Styles for laptops and small desktops */
     .contain-box {
         padding: 0px 2rem;
         margin: 7rem 0rem;
@@ -710,19 +717,21 @@ footer a{
 }
 
 @media screen and (max-width: 1024px) {
-
-    /* Styles for landscape tablets and small laptops */
     .hero-detail>:first-child {
         font-size: var(--h2-S);
     }
 
     .Typing-Container {
         font-size: 3rem;
-
     }
 
     .hero-detail>:nth-child(3) {
         font-size: var(--h3-S);
+    }
+
+    .coming-soon {
+        top: -11px;
+        right: -12px;
     }
 
     .contact-btn button {
@@ -730,7 +739,8 @@ footer a{
         margin-top: 25px;
     }
 
-    .services .section-title, .sec-title h2 {
+    .services .section-title,
+    .sec-title h2 {
         font-size: 2.5rem;
     }
 
@@ -765,16 +775,14 @@ footer a{
         margin: 4rem 0;
     }
 
-
-
     .contain-box,
     .resume-container {
         grid-template-columns: 1fr;
     }
-    .contain-box{
+
+    .contain-box {
         margin-bottom: 0px;
     }
-
 
     .resume-container {
         gap: 3rem;
@@ -788,17 +796,27 @@ footer a{
         width: 65%;
     }
 
-    .services .section-title, .resume-box h2, .resume-detail h2, .contact-box h2, .contact-box .heading, .sec-title h2 {
+    .services .section-title,
+    .resume-box h2,
+    .resume-detail h2,
+    .contact-box h2,
+    .contact-box .heading,
+    .sec-title h2 {
         font-size: 2.3rem;
     }
 
-    .contact-box .field-box{
+    .contact-box .field-box {
         grid-template-columns: 1fr;
+    }
+
+    .coming-soon-project {
+        top: -9px;
+        right: -10px;
     }
 }
 
 @media screen and (max-width: 445px) {
-    /* Styles for large desktops */
+
     .Typing-Container {
         font-size: 2.5rem;
     }
@@ -807,8 +825,22 @@ footer a{
         padding: 20px;
     }
 
-    header, .crafto-hero, .services, .resume, .contact-container{
+    header,
+    .crafto-hero,
+    .services,
+    .resume,
+    .contact-container {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .coming-soon {
+        top: -10.8px;
+        right: -10.8px;
+    }
+
+    .Learning {
+        top: -8px;
+        right: -8px;
     }
 }
