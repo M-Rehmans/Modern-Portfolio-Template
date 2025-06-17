@@ -262,8 +262,43 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
- function handleSubmit(e) {
+function handleSubmit(e) {
     e.preventDefault();
+
+    // Grab fields
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Basic validations
+    if (name.length < 2) {
+      alert("Please enter your full name.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!validatePhone(phone)) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+
+    if (subject.length < 3) {
+      alert("Please enter a subject.");
+      return;
+    }
+
+    if (message.length < 10) {
+      alert("Please enter a message with at least 10 characters.");
+      return;
+    }
+
+    // Submit using fetch
     const form = e.target;
     const data = new FormData(form);
 
@@ -272,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
       body: data
     }).then(() => {
       form.reset();
-      document.getElementById("dialog").style.display = "block";
+      document.getElementById("dialog").style.display = "flex";
     }).catch(error => {
       alert("Something went wrong!");
       console.error(error);
@@ -281,4 +316,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeDialog() {
     document.getElementById("dialog").style.display = "none";
+  }
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email.toLowerCase());
+  }
+
+  function validatePhone(phone) {
+    const re = /^[0-9+\s()-]{7,}$/;
+    return re.test(phone);
   }
