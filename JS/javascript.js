@@ -265,23 +265,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.querySelectorAll('.field-box input, .field-box textarea').forEach(input => {
+  input.addEventListener('blur', () => validateField(input));
+});
+
+function validateField(input) {
+  const errorIcon = input.parentElement.querySelector('.error-icon');
+  let message = '';
+
+  if (!input.value.trim()) {
+    message = 'This field is required';
+  } else if (input.type === 'email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
+    message = 'Invalid email format';
+  } else if (input.type === 'tel' && !/^\d{10,15}$/.test(input.value)) {
+    message = 'Enter valid phone number';
+  }
+
+  if (message) {
+    errorIcon.style.display = 'inline';
+    errorIcon.setAttribute('data-tooltip', message);
+    return false;
+  } else {
+    errorIcon.style.display = 'none';
+    errorIcon.removeAttribute('data-tooltip');
+    return true;
+  }
+}
+
 function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+  e.preventDefault();
+  const form = e.target;
+  const fields = form.querySelectorAll('.field-box input, .field-box textarea');
+  let isValid = true;
 
-    fetch("/", {
-      method: "POST",
-      body: data
-    }).then(() => {
-      form.reset();
-      document.getElementById("dialog").style.display = "block";
-    }).catch(error => {
-      alert("Something went wrong!");
-      console.error(error);
-    });
-  }
+  fields.forEach(field => {
+    if (!validateField(field)) {
+      isValid = false;
+    }
+  });
 
-  function closeDialog() {
-    document.getElementById("dialog").style.display = "none";
-  }
+  if (!isValid) return;
+
+  const data = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    body: data
+  }).then(() => {
+    form.reset();
+    document.getElementById("dialog").style.display = "block";
+  }).catch(error => {
+    alert("Something went wrong!");
+    console.error(error);
+  });
+}
+
+function closeDialog() {
+  document.getElementById("dialog").style.display = "none";
+}
