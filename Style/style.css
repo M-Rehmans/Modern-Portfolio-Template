@@ -609,6 +609,18 @@ h3 {
     z-index: 999;
 }
 
+ .error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 2px;
+    display: none;
+  }
+  .field-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
 /* Project section */
 .projects-Sec {
     margin: 30px 0px;
