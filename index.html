@@ -400,51 +400,19 @@
 
       </div>
       <div class="contact-box">
-        
-        <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)" novalidate>
-  <input type="hidden" name="form-name" value="contact">
+        <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="contact">
 
-  <h2 class="heading">Contact <span>Me!</span></h2>
-  <div class="field-box">
-    <div class="input-wrap">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <span class="error-icon" data-tooltip=""></span>
-    </div>
-
-    <div class="input-wrap">
-      <input type="email" name="email" placeholder="Email Address" required>
-      <span class="error-icon" data-tooltip=""></span>
-    </div>
-
-    <div class="input-wrap">
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <span class="error-icon" data-tooltip=""></span>
-    </div>
-
-    <div class="input-wrap">
-      <input type="text" name="subject" placeholder="Email Subject" required>
-      <span class="error-icon" data-tooltip=""></span>
-    </div>
-
-    <div class="input-wrap">
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <span class="error-icon" data-tooltip=""></span>
-    </div>
-  </div>
-
-  <button type="submit" class="form-btn">Send Message</button>
-</form>
-
-
-        <!-- Success Dialog -->
-        <div id="dialog" style="display:none; position:fixed; top:30%; left:50%; transform:translateX(-50%);
-  background:#fff; padding:20px 30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;">
-          <p>✅ Your message has been sent!</p>
-          <button onclick="closeDialog()">OK</button>
-        </div>
-
-        
-        
+          <h2 class="heading">Contact <span>Me!</span></h2>
+          <div class="field-box">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="subject" placeholder="Email Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="form-btn">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
