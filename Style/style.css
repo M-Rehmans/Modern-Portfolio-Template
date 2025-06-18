@@ -609,11 +609,6 @@ h3 {
     z-index: 999;
 }
 
- .input-wrap {
-  position: relative;
-  margin-bottom: 20px;
-}
-
 /* Project section */
 .projects-Sec {
     margin: 30px 0px;
