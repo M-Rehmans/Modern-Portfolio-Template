@@ -31,7 +31,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 **Muhammad Rehman Rafi**  
-🌐 [Craftology.site](https://craftology.site)  
+🌐 [Rehman-Dev](https://rehman-dev.netlify.app/)  
 📩 [Send Mail To Rehman](mailto:mrehmanrafi15@gmail.com)
 📌 [GitHub Profile](https://github.com/M-Rehmans)
 
