@@ -138,6 +138,10 @@ header.active {
     color: var(--secondary);
 }
 
+.hero-detail a{
+    color: var(--text);
+}
+
 .Typing-Container {
     font-size: var(--h1-XL);
     font-weight: 650;
