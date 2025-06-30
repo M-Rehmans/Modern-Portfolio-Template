@@ -542,9 +542,10 @@ h3 {
     font-weight: 500;
 }
 
-.social-detail i{
-    
-
+.social-detail{
+    display: flex;
+    gap:10px;
+}
 .contact-box form {
     background-color: var(--secondary);
     padding: 2rem 3rem 1.3rem;
