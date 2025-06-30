@@ -527,7 +527,7 @@ h3 {
     margin: 2rem 0;
 }
 
-.contact-detail i {
+.contact-detail>i {
     display: inline-flex;
     background: var(--secondary);
     color: white;
@@ -541,6 +541,9 @@ h3 {
     color: var(--primary);
     font-weight: 500;
 }
+
+.social-detail i{
+    
 
 .contact-box form {
     background-color: var(--secondary);
