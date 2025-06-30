@@ -138,7 +138,7 @@ header.active {
     color: var(--secondary);
 }
 
-.hero-detail a{
+.detail a{
     color: var(--text);
 }
 
